@@ -1,0 +1,38 @@
+{
+    "page-title":  "Masterplan 360 | Parque Central",
+    "subtitle":  "Experiencia inmersiva para espacio público",
+    "feature":  {
+                    "iframe":  "",
+                    "images":  [
+                                   {
+                                       "title":  "Parque Central",
+                                       "file":  "images/background.jpg",
+                                       "class":  ""
+                                   }
+                               ],
+                    "source":  "",
+                    "type":  "image",
+                    "id":  ""
+                },
+    "tags":  "visualizacion,360",
+    "title":  "Parque Central",
+    "awards":  [
+
+               ],
+    "url":  "https://layout360.studio",
+    "press":  [
+
+              ],
+    "media":  [
+
+              ],
+    "link":  "work/parque-central",
+    "client":  "Layout360Studio",
+    "hashtags":  "masterplan360",
+    "role":  "Visualización 360 y masterplan",
+    "content":  "Placeholder de descripción del proyecto. Ajusta con objetivos, alcances y entregables clave.",
+    "twitterShare":  "Parque Central",
+    "links":  [
+
+              ]
+}
