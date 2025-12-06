@@ -957,10 +957,22 @@ transition: all 0.3s ease 0s;
 }
 
 .prototypes .prototypes-item .subtitle { 
-
 }
 
 /* prototypes */
+
+/* --- Ajuste de imágenes SOLO para la sección PLANES --- */
+.prototypes .list-item {
+    overflow: hidden;
+}
+
+.prototypes .list-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: fill !important; /* llena el contenedor completo */
+    object-position: center;
+    border-radius: 6px;
+}
 
 
 
