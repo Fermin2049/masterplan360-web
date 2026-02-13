@@ -1,0 +1,38 @@
+{
+    "page-title":  "Masterplan 360 | Rooftop 360",
+    "subtitle":  "Vista panorámica",
+    "feature":  {
+                    "iframe":  "",
+                    "images":  [
+                                   {
+                                       "title":  "Rooftop 360",
+                                       "file":  "images/background.jpg",
+                                       "class":  ""
+                                   }
+                               ],
+                    "source":  "",
+                    "type":  "image",
+                    "id":  ""
+                },
+    "tags":  "galeria,visualizacion",
+    "title":  "Rooftop 360",
+    "awards":  [
+
+               ],
+    "url":  "https://layout360.studio",
+    "press":  [
+
+              ],
+    "media":  [
+
+              ],
+    "link":  "art/rooftop-360",
+    "client":  "Layout360Studio",
+    "hashtags":  "masterplan360",
+    "role":  "Visualización",
+    "content":  "Descripción breve del proyecto visual entregado. Reemplaza con detalles reales.",
+    "twitterShare":  "Rooftop 360",
+    "links":  [
+
+              ]
+}

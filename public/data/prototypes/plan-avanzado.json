@@ -1,0 +1,38 @@
+{
+    "page-title":  "Masterplan 360 | Plan Avanzado",
+    "subtitle":  "Tour interactivo con hotspots",
+    "feature":  {
+                    "iframe":  "",
+                    "images":  [
+                                   {
+                                       "title":  "Plan Avanzado",
+                                       "file":  "images/background.jpg",
+                                       "class":  ""
+                                   }
+                               ],
+                    "source":  "",
+                    "type":  "image",
+                    "id":  ""
+                },
+    "tags":  "planes,servicios",
+    "title":  "Plan Avanzado",
+    "awards":  [
+
+               ],
+    "url":  "https://layout360.studio",
+    "press":  [
+
+              ],
+    "media":  [
+
+              ],
+    "link":  "prototypes/plan-avanzado",
+    "client":  "Layout360Studio",
+    "hashtags":  "masterplan360",
+    "role":  "Planes de servicio",
+    "content":  "Placeholder de beneficios y entregables incluidos en este plan.",
+    "twitterShare":  "Plan Avanzado",
+    "links":  [
+
+              ]
+}
