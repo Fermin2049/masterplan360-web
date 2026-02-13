@@ -248,7 +248,6 @@ APP.webGL = {
             APP.webGL.onMouseUpLanding(null); 
           } 
         },10 );
-      APP.sounds['dance'].play();
       _this.canvas.addEventListener('mouseup', APP.webGL.onMouseUpLanding, false);
   },
 
@@ -257,7 +256,6 @@ APP.webGL = {
         _this = APP.webGL;
         clearInterval(window.intensityTimer);
         _this.intensity = 1.0;
-        APP.sounds['dance'].stop();
         APP.loader.update(0);
         _this.canvas.removeEventListener('mouseup', APP.webGL.onMouseUpLanding, false);
         APP.loader.hide();

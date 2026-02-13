@@ -21,7 +21,7 @@ body,p,h1, h2,h3,h4,h5,h6,a{font-family: 'futura-pt', sans-serif; color:#fff; }
 input:focus, select:focus, textarea:focus, button:focus { outline: none; }
 body {  color:#fff; overflow-x:hidden;}
 
-.top-bar{ width:100vw; height:50vh; background: black; position: fixed; z-index: 1000; top:0; transition: .3s ease-in-out;}
+.top-bar{ width:100vw; height:50vh; background: black; position: fixed; z-index: 1000; top:0; transition: .3s ease-in-out; overflow: hidden;}
 .top-bar.bar{height: 10vh;}
 .top-bar.hide{height: 0vh;min-height: 0;}
 .top-bar-content{
@@ -46,6 +46,10 @@ body {  color:#fff; overflow-x:hidden;}
     font-size: 20px;
     text-align: center;
     pointer-events: auto;
+}
+.top-bar.hide .top-bar-content{
+    opacity: 0;
+    pointer-events: none;
 }
 .bottom-bar{ width:100vw; height:50vh;  background: black; position: fixed; z-index: 1000; bottom:0; text-align: center;transition: .3s ease-in-out;}
 .bottom-bar.bar{height: 10vh;}
@@ -1414,148 +1418,6 @@ margin-bottom:5px;
 
 
 
-/* sound */
-.sound {width:20px; height: auto; position: absolute; z-index: 1000; top:25px; right:20px; cursor: pointer; opacity:.7;}
-.soundOn { display: block; }
-.soundOff { display: none; }
-/* sound */
-
-
-/* sound icon animation */
-
-.sbar {
-  height: 1px;
-  width: 2px;
-  float:left;
-  background-color: #3d5257;
-  opacity:1;
-  bottom: 5px;
-  position: absolute;
-  -webkit-animation-duration: 500ms;
-  -webkit-animation-play-state: running;
-  -webkit-animation-direction: alternate;
-  -webkit-animation-timing-function: linear;
-  -webkit-animation-iteration-count: infinite;
-
-  animation-duration: 500ms;
-  animation-play-state: running;
-  animation-direction: alternate;
-  animation-timing-function: linear;
-  animation-iteration-count: infinite;
-}
-.sbar.noAnim {
-   -webkit-animation: none !important;
-
- -moz-animation: none !important;
-
- -o-animation: none !important;
-
- -ms-animation: none !important;
-
- animation: none !important;
-
-}
-.sbar#bar-1 {
-  left: 0;
-  -webkit-animation-name: danceHeight1;
-  -webkit-animation-delay: 0ms;
-
-  animation-name: danceHeight1;
-  animation-delay: 0ms;
-
-}
-.sbar#bar-2 {
-  left: 4px;
-  -webkit-animation-name: danceHeight2;
-  -webkit-animation-delay: 300ms;
-
-  animation-name: danceHeight2;
-  animation-delay: 300ms;
-}
-.sbar#bar-3 {
-  left: 8px;
-  -webkit-animation-name: danceHeight3;
-  -webkit-animation-delay: 600ms;
-
-  animation-name: danceHeight3;
-  animation-delay: 600ms;
-
-}
-.sbar#bar-4 {
-  left: 12px;
-  -webkit-animation-name: danceHeight4;
-  -webkit-animation-delay: 900ms;
-  animation-name: danceHeight4;
-  animation-delay: 900ms;
-}
-
-@-webkit-keyframes danceHeight1 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 10px;
-  }
-}
-@-webkit-keyframes danceHeight2 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 12px;
-  }
-}
-@-webkit-keyframes danceHeight3 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 14px;
-  }
-}
-@-webkit-keyframes danceHeight4 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 8px;
-  }
-}
-
-
-@keyframes danceHeight1 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 10px;
-  }
-}
-@keyframes danceHeight2 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 12px;
-  }
-}
-@keyframes danceHeight3 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 14px;
-  }
-}
-@keyframes danceHeight4 {
-  from {
-    height: 1px;
-  }
-  to {
-    height: 8px;
-  }
-}
-/* end sound anmation */ 
 
 
 
@@ -1645,9 +1507,6 @@ margin-bottom:5px;
 
 /* @media only screen and (max-device-width: 640px) and (orientation: landscape) {
   */
-
-
-.footer-sound { text-align:center; width: 18px; position: fixed; height:18px; margin-left:auto; right:1vw; top:2vh;  cursor: pointer; z-index: 10000; }
 
 
 .logo { display: none; }
@@ -2067,5 +1926,4 @@ margin-bottom:5px;
 
   .press-detail .next-button { top:50vh; }
 
-  .footer-sound {left:6vw; top:3vh; right:unset; }
 }

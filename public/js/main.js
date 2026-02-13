@@ -75,141 +75,6 @@ APP.init = function(){
 	// hide all before start
 	$(".page").addClass("hide");
 
-	APP.sounds=[];
-	// set up the site default sounds
-	$.each(APP.data.sounds,function(i, s){
-		var sound = new Howl({
-		  src: s.file,
-		  loop: s.loop,
-		  volume: s.volume,
-		  html5: s.html5,
-		  onend: function(o) {
-		    //console.log('Finished!',o);
-		  },
-		  name: s.name
-		});
-		APP.sounds[s.name] = sound;
-		APP.sounds[s.name].volume(s.volume);
-		APP.sounds[s.name].maxVolume=s.volume;
-	});
-
-
-	// global mute control
-	APP.muteAll = function(ignoreGlobalSoundState){
-		console.log("mute all ");
-		$(".footer-sound .sbar").addClass("noAnim");
-		clearInterval(window.muteInterval);
-		var v = Howler.volume();
-		window.muteInterval=setInterval(function(){
-			v-=.1;
-			Howler.volume(v);
-			if(v<=0.0){ Howler.volume(0.0); clearInterval(window.muteInterval);}
-			//console.log("ticking");
-		},50);
-
-		//_this.analyser.minDecibels = -100;
-		
-		// flag will 
-		if( !ignoreGlobalSoundState ) { APP.soundOn = false; }
-	}
-
-	// global unmute control
-	APP.unMuteAll = function(ignoreGlobalSoundState){
-		console.log("unMute all ");
-		$(".footer-sound .sbar").removeClass("noAnim");
-		clearInterval(window.muteInterval);
-		var v = Howler.volume();
-		window.muteInterval=setInterval(function(){
-			v+=.1;
-			Howler.volume(v);
-			if(v>=1){ Howler.volume(1); clearInterval(window.muteInterval);}
-			//console.log("ticking");
-		},50);
-
-		//_this.analyser.minDecibels = -60;
-
-		// flag will 
-		if( !ignoreGlobalSoundState ) { APP.soundOn = true; }
-
-	}
-
-	
-	APP.sounds["ambient"].play();
-	APP.soundOn=true;
-
-
-		// legacy show hide as needed
-	var hidden, visibilityChange;
-	if (typeof document.hidden !== "undefined") {
-	    hidden = "hidden";
-	    visibilityChange = "visibilitychange";
-	} else if (typeof document.mozHidden !== "undefined") {
-	    hidden = "mozHidden";
-	    visibilityChange = "mozvisibilitychange";
-	} else if (typeof document.msHidden !== "undefined") {
-	    hidden = "msHidden";
-	    visibilityChange = "msvisibilitychange";
-	} else if (typeof document.webkitHidden !== "undefined") {
-	    hidden = "webkitHidden";
-	    visibilityChange = "webkitvisibilitychange";
-	}
-
-	APP.hidden = false;
-
-	document.addEventListener(visibilityChange, handleVisibilityChange, false);
-
-	function handleVisibilityChange() {
-	   if(document[hidden]){
-	   		APP.hidden = true;
-	   		APP.muteAll(true);
-	   		
-	   }
-
-	    if(!document[hidden]){
-	    	APP.hidden = false;
-	    	if(APP.soundOn){
-	   			APP.unMuteAll(true);
-	   		}
-	   }
-
-	}
-
-
-
-	
-
-	$(".footer-sound").click(function(e){
-		APP.sounds['click'].play();
-		//_this.audio.playFromTo("click",0,1);
-		if (APP.soundOn) {
-	    	$(".footer-sound .sbar").addClass("noAnim");
-	   		APP.soundOn = false;
-	   		APP.muteAll();
-	   		// udpate cookie
-	   		setCookie("muted",1);
-	  	} else {
-	    	$(".footer-sound .sbar").removeClass("noAnim");
-	    	APP.soundOn = true;
-	    	APP.unMuteAll();
-	    	setCookie("muted",0);
-	  	}
-		
-	});
-	
-
-	// to help with needing click to start audio
-	$("body").click(function(){
-		//APP.sounds["click"].play();
-	});
-
-	$(".background").click(function(){
-		//APP.sounds["click"].play();
-	});
-
-	$("#webgl").click(function(){
-		//APP.sounds["click"].play();
-	});
-
 	APP.mouse = new THREE.Vector2(0,0);
 	if(!this.isMobile){
 		window.addEventListener("mousemove", mouseMove);
@@ -225,7 +90,6 @@ APP.init = function(){
 
 	// reel close button
 	$('#reel .close').on('click', function() {
-		APP.sounds["click"].play();
 		APP.hideReel();
 	});
 
@@ -326,7 +190,6 @@ window.onpopstate = function(event) {
 APP.showReel = function(){
 	$("#reel").addClass("show");
 	APP.webGL.paused = true;
-	APP.muteAll(true);
 
 	$.each(APP.videoPlayers,function(i,p){
 		if( p.showreel ){ p.play(); } else { p.pause(); }
@@ -342,9 +205,6 @@ APP.hideReel = function(){
 		if( p.showreel ){ p.pause(); }
 	});
 	APP.webGL.paused = false;
-	if(APP.soundOn){
-		APP.unMuteAll();
-	}
 	_this.canvas.addEventListener('mousedown', APP.webGL.onMouseDownLanding, false);
 }
 
@@ -378,27 +238,6 @@ APP.videos = {
 		    };
 
 		    var player = new Vimeo.Player('player_'+id, options);
-
-		    player.setVolume(1);
-
-		    player.on('play', function() {
-		        console.log('video played');
-		        APP.muteAll(true);
-		    });
-
-		    player.on('pause', function() {
-		        console.log('video paused!');
-		        if(APP.soundOn && !APP.hidden){
-		   			APP.unMuteAll();
-		   		}
-		    });
-
-		    player.on('stop', function() {
-		        console.log('video stopped');
-		        if(APP.soundOn && !APP.hidden){
-		   			APP.unMuteAll();
-		   		}
-		    });
 
 		    player.on('loaded', function() {
 		        console.log('video is ready and loaded');

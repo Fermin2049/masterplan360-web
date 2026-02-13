@@ -24,7 +24,6 @@ APP.header = {
     $(".header-title").html(APP.data.header.title);
 
     $(".logo").click(function () {
-      APP.sounds["click"].play();
       APP.go("home", true);
     });
 
@@ -133,7 +132,6 @@ APP.menu = {
     $(".footer-menu .menu-items").html(str2);
 
     $(".menu-item").click(function () {
-      APP.sounds["click"].play();
       var link = $(this).attr("data-link");
       console.log("menu-item clicked : " + link);
       if (link == "reel") {
@@ -145,7 +143,6 @@ APP.menu = {
     });
 
     $(".menu-button").click(function () {
-      APP.sounds["click"].play();
       if ($(this).hasClass("active")) {
         // hide menu
         APP.menu.hide();
@@ -284,7 +281,6 @@ APP.work = {
 
     // assign click handlers
     $(".work .work-item").click(function () {
-      APP.sounds["click"].play();
       var link = $(this).attr("data-link");
       console.log("work-item clicked : " + link);
       APP.go(link, true);
@@ -395,7 +391,6 @@ APP.press = {
 
     // assign click handlers
     $(".press .press-item").click(function () {
-      APP.sounds["click"].play();
       var link = $(this).attr("data-link");
       console.log("press-item clicked : " + link);
       if (link.includes("http")) {
@@ -479,7 +474,6 @@ APP.prototypes = {
 
     // assign click handlers
     $(".prototypes .prototypes-item").click(function () {
-      APP.sounds["click"].play();
       var link = $(this).attr("data-link");
       console.log("prototypes-item clicked : " + link);
       APP.go(link, true);
@@ -614,29 +608,6 @@ APP.info = {
           };
 
           var player = new Vimeo.Player("feature-video", options);
-
-          // TODO: Event handlers and controllers to manage sound and video
-          // when both playing and/ leaving site
-          player.setVolume(1);
-
-          player.on("play", function () {
-            console.log("video played");
-            APP.muteAll(true);
-          });
-
-          player.on("pause", function () {
-            console.log("video paused!");
-            if (APP.soundOn && !APP.hidden) {
-              APP.unMuteAll();
-            }
-          });
-
-          player.on("stop", function () {
-            console.log("video stopped");
-            if (APP.soundOn && !APP.hidden) {
-              APP.unMuteAll();
-            }
-          });
 
           player.on("loaded", function () {
             console.log("video is ready and loaded");
@@ -889,22 +860,18 @@ APP.workDetail = {
     console.log("init work detail");
 
     $(".work-detail .next-button").click(function () {
-      APP.sounds["click"].play();
       APP.workDetail.goNext();
     });
 
     $(".work-detail .bottom-next").click(function () {
-      APP.sounds["click"].play();
       APP.workDetail.goNext();
     });
 
     $(".work-detail .bottom-back").click(function () {
-      APP.sounds["click"].play();
       APP.workDetail.goBack();
     });
 
     $(".work-detail .bottom-up").click(function () {
-      APP.sounds["click"].play();
       APP.go("work", true);
     });
   },
@@ -992,29 +959,6 @@ APP.workDetail = {
 
           var player = new Vimeo.Player("feature-video", options);
 
-          // TODO: Event handlers and controllers to manage sound and video
-          // when both playing and/ leaving site
-          player.setVolume(1);
-
-          player.on("play", function () {
-            console.log("video played");
-            APP.muteAll(true);
-          });
-
-          player.on("pause", function () {
-            console.log("video paused!");
-            if (APP.soundOn && !APP.hidden) {
-              APP.unMuteAll();
-            }
-          });
-
-          player.on("stop", function () {
-            console.log("video stopped");
-            if (APP.soundOn && !APP.hidden) {
-              APP.unMuteAll();
-            }
-          });
-
           player.on("loaded", function () {
             console.log("video is ready and loaded");
           });
@@ -1057,12 +1001,8 @@ APP.workDetail = {
           player.addEventListener("onStateChange", function (e) {
             if (e.data == YT.PlayerState.PLAYING) {
               console.log("video playing");
-              APP.muteAll(true);
             } else {
               console.log("video not playing, state: " + e.data);
-              if (APP.soundOn && !APP.hidden) {
-                APP.unMuteAll();
-              }
             }
           });
         }
@@ -1457,29 +1397,6 @@ APP.artDetail = {
 
           var player = new Vimeo.Player("feature-video", options);
 
-          // TODO: Event handlers and controllers to manage sound and video
-          // when both playing and/ leaving site
-          player.setVolume(1);
-
-          player.on("play", function () {
-            console.log("video played");
-            APP.muteAll(true);
-          });
-
-          player.on("pause", function () {
-            console.log("video paused!");
-            if (APP.soundOn && !APP.hidden) {
-              APP.unMuteAll();
-            }
-          });
-
-          player.on("stop", function () {
-            console.log("video stopped");
-            if (APP.soundOn && !APP.hidden) {
-              APP.unMuteAll();
-            }
-          });
-
           player.on("loaded", function () {
             console.log("video is ready and loaded");
           });
@@ -1851,29 +1768,6 @@ APP.pressDetail = {
 
           var player = new Vimeo.Player("feature-video", options);
 
-          // TODO: Event handlers and controllers to manage sound and video
-          // when both playing and/ leaving site
-          player.setVolume(1);
-
-          player.on("play", function () {
-            console.log("video played");
-            APP.muteAll(true);
-          });
-
-          player.on("pause", function () {
-            console.log("video paused!");
-            if (APP.soundOn && !APP.hidden) {
-              APP.unMuteAll();
-            }
-          });
-
-          player.on("stop", function () {
-            console.log("video stopped");
-            if (APP.soundOn && !APP.hidden) {
-              APP.unMuteAll();
-            }
-          });
-
           player.on("loaded", function () {
             console.log("video is ready and loaded");
           });
@@ -2146,22 +2040,18 @@ APP.prototypesDetail = {
     console.log("init prototypes detail");
 
     $(".prototypes-detail .next-button").click(function () {
-      APP.sounds["click"].play();
       APP.prototypesDetail.goNext();
     });
 
     $(".prototypes-detail .bottom-next").click(function () {
-      APP.sounds["click"].play();
       APP.prototypesDetail.goNext();
     });
 
     $(".prototypes-detail .bottom-back").click(function () {
-      APP.sounds["click"].play();
       APP.prototypesDetail.goBack();
     });
 
     $(".prototypes-detail .bottom-up").click(function () {
-      APP.sounds["click"].play();
       APP.go("prototypes", true);
     });
   },
@@ -2253,29 +2143,6 @@ APP.prototypesDetail = {
 
           var player = new Vimeo.Player("feature-video", options);
 
-          // TODO: Event handlers and controllers to manage sound and video
-          // when both playing and/ leaving site
-          player.setVolume(1);
-
-          player.on("play", function () {
-            console.log("video played");
-            APP.muteAll(true);
-          });
-
-          player.on("pause", function () {
-            console.log("video paused!");
-            if (APP.soundOn && !APP.hidden) {
-              APP.unMuteAll();
-            }
-          });
-
-          player.on("stop", function () {
-            console.log("video stopped");
-            if (APP.soundOn && !APP.hidden) {
-              APP.unMuteAll();
-            }
-          });
-
           player.on("loaded", function () {
             console.log("video is ready and loaded");
           });
@@ -2321,12 +2188,8 @@ APP.prototypesDetail = {
           player.addEventListener("onStateChange", function (e) {
             if (e.data == YT.PlayerState.PLAYING) {
               console.log("video playing");
-              APP.muteAll(true);
             } else {
               console.log("video not playing, state: " + e.data);
-              if (APP.soundOn && !APP.hidden) {
-                APP.unMuteAll();
-              }
             }
           });
         }
@@ -2521,7 +2384,6 @@ APP.prototypesDetail = {
     $(".prototypes-detail .related-title").html("[ related prototypes ]");
     $(".prototypes-detail .related-list").html(str);
     $(".prototypes-detail .related-list .list-item").click(function () {
-      APP.sounds["click"].play();
       var link = $(this).attr("data-link");
       if (link) {
         APP.go(link, true);
@@ -2631,8 +2493,4 @@ APP.hidePage = function (page) {
     $(page).addClass("hide");
   }, 1000);
 
-  // turn ambient back on, if not muted
-  if (APP.soundOn && !APP.hidden) {
-    APP.unMuteAll();
-  }
 };

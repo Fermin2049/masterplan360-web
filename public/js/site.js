@@ -293,27 +293,4 @@ APP.data = {
 		caption: '',
 	},
 
-	sounds: [
-		{
-			file: 'assets/sounds/Knowing.mp3',
-			name: 'ambient',
-			loop: true,
-			volume: 0.8,
-			html5: false,
-		},
-		{
-			file: 'assets/sounds/427_short2_pushed-on_0036.mp3',
-			name: 'dance',
-			loop: true,
-			volume: 1.0,
-			html5: false,
-		},
-		{
-			file: 'assets/sounds/Beep_Low_10.mp3',
-			name: 'click',
-			loop: false,
-			volume: 0.8,
-			html5: false,
-		},
-	],
 };
