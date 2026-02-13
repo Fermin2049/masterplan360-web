@@ -49,6 +49,25 @@ APP.webGL = {
     tex.needsUpdate = true;
     return tex;
   },
+  createCircleSpriteTexture:function(){
+    var size = 128;
+    var canvas = document.createElement("canvas");
+    canvas.width = size;
+    canvas.height = size;
+    var ctx = canvas.getContext("2d");
+    var center = size / 2;
+    var gradient = ctx.createRadialGradient(center, center, 0, center, center, center);
+    gradient.addColorStop(0.0, "rgba(255,255,255,0.9)");
+    gradient.addColorStop(0.6, "rgba(255,255,255,0.35)");
+    gradient.addColorStop(1.0, "rgba(255,255,255,0)");
+    ctx.fillStyle = gradient;
+    ctx.beginPath();
+    ctx.arc(center, center, center, 0, Math.PI * 2);
+    ctx.fill();
+    var texture = new THREE.CanvasTexture(canvas);
+    texture.needsUpdate = true;
+    return texture;
+  },
 
   init : function(){
 
@@ -505,9 +524,10 @@ APP.webGL = {
           vertices.push( x, y, z );
         }
         geometry.addAttribute( 'position', new THREE.Float32BufferAttribute( vertices, 3 ) );
+        var circleSprite = _this.createCircleSpriteTexture();
         parameters = [
-          [[ 0.3, 0.7, 0.9 ], _this.textures['sprite1'], .3 ],
-          [[ 0.3, 0.3, 0.8 ], _this.textures['sprite2'], .3 ]
+          [[ 0.3, 0.7, 0.9 ], circleSprite, .35 ],
+          [[ 0.3, 0.3, 0.8 ], circleSprite, .2 ]
         ];
         for ( var i = 0; i < parameters.length; i ++ ) {
           var color = parameters[ i ][ 0 ];

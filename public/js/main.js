@@ -619,6 +619,7 @@ APP.go = function(state, storeHistory){
 			$(".bottom-bar").addClass("bar");
 			$(".header").removeClass("show");
 			$(".footer-menu").addClass("show");
+			$(".home-hero-video").addClass("show");
 		},500)
 
 	} else {
@@ -629,6 +630,7 @@ APP.go = function(state, storeHistory){
 			$(".bottom-bar").addClass("hide");
 			$(".header").addClass("show");
 			$(".footer-menu").removeClass("show");
+			$(".home-hero-video").removeClass("show");
 		},500)
 	}
 
