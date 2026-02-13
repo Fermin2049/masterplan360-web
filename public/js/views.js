@@ -180,8 +180,9 @@ APP.home = {
   _this: this,
   init: function () {
     console.log("init home");
-    $(".home .page-title").html(APP.data.home.title);
-    $(".home .page-subtitle").html(APP.data.home.subtitle);
+    $(".home .page-title").html("");
+    $(".home .page-subtitle").html("");
+    $(".home .titles").hide();
 
     // make the feature title follow the mouse
 

@@ -24,6 +24,29 @@ body {  color:#fff; overflow-x:hidden;}
 .top-bar{ width:100vw; height:50vh; background: black; position: fixed; z-index: 1000; top:0; transition: .3s ease-in-out;}
 .top-bar.bar{height: 10vh;}
 .top-bar.hide{height: 0vh;min-height: 0;}
+.top-bar-content{
+    position: relative;
+    height: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    pointer-events: none;
+}
+.top-bar-logo{
+    position: absolute;
+    left: 4vw;
+    height: 32px;
+    width: auto;
+    pointer-events: auto;
+}
+.top-bar-title{
+    color: white;
+    text-transform: uppercase;
+    letter-spacing: 6px;
+    font-size: 20px;
+    text-align: center;
+    pointer-events: auto;
+}
 .bottom-bar{ width:100vw; height:50vh;  background: black; position: fixed; z-index: 1000; bottom:0; text-align: center;transition: .3s ease-in-out;}
 .bottom-bar.bar{height: 10vh;}
 .bottom-bar.hide{height: 0vh; min-height: 0;}
@@ -2027,5 +2050,4 @@ margin-bottom:5px;
 
   .footer-sound {left:6vw; top:3vh; right:unset; }
 }
-
 
