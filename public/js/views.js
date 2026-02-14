@@ -429,55 +429,41 @@ APP.prototypes = {
     $(".prototypes .page-title").html(data.title);
     $(".prototypes .page-subtitle").html(data.subtitle);
     $(".prototypes .page-content").html(data.content);
-    //iterate the  prototypes and build list
-    var l = "",
-      a = 0;
+    // build services grid
+    var l = "";
     $.each(list, function (i, p) {
-      if (a % 2 == 0) {
-        align = "right";
-      } else {
-        align = "left";
-      }
-      if (a <= 10) {
-        l +=
-          "<div data-aos='fade-up' data-aos-easing='ease-in-out' data-aos-offset='0' data-aos-duration='1000' data-aos-delay='0' class='list-item prototypes-item " +
-          align +
-          "' data-link='" +
-          p.link +
-          "'><div class='tilt'><img src='" +
-          p.thumb +
-          "' /><div class='titles'><div class='subtitle'>" +
-          p.subtitle +
-          "</div><div class='title'>" +
-          p.title +
-          "</div></div></div></div>";
-      } else {
-        l +=
-          "<div data-aos='fade-up' data-aos-easing='ease-in-out' data-aos-offset='0' data-aos-duration='1000' data-aos-delay='0' class='list-item prototypes-item " +
-          align +
-          "' data-link='" +
-          p.link +
-          "'><div class='tilt'><img class='lazy' data-src='" +
-          p.thumb +
-          "' /><div class='titles'><div class='subtitle'>" +
-          p.subtitle +
-          "</div><div class='title'>" +
-          p.title +
-          "</div></div></div></div>";
-      }
-
-      a++;
+      var msg =
+        "Hola, quiero más información sobre el servicio: " + p.title + ".";
+      var wa = "https://wa.me/" + p.whatsapp + "?text=" + encodeURIComponent(msg);
+      var items = "";
+      $.each(p.description, function (idx, line) {
+        items += "<li>" + line + "</li>";
+      });
+      l +=
+        "<div data-aos='fade-up' data-aos-easing='ease-in-out' data-aos-offset='0' data-aos-duration='900' data-aos-delay='0' class='service-card'>" +
+        "<div class='service-header'>" +
+        "<span class='service-icon " +
+        (p.iconAnim || "") +
+        "'><i class='" +
+        (p.icon || "fa-solid fa-star") +
+        "'></i></span>" +
+        "<div class='service-title'>" +
+        p.title +
+        "</div>" +
+        "</div>" +
+        "<div class='service-subtitle'>" +
+        p.subtitle +
+        "</div>" +
+        "<ul class='service-list'>" +
+        items +
+        "</ul>" +
+        "<a class='service-cta' href='" +
+        wa +
+        "' target='_blank' rel='noopener'>Contactar por WhatsApp</a>" +
+        "</div>";
     });
 
-    // update page
     $(".prototypes .list").html(l);
-
-    // assign click handlers
-    $(".prototypes .prototypes-item").click(function () {
-      var link = $(this).attr("data-link");
-      console.log("prototypes-item clicked : " + link);
-      APP.go(link, true);
-    });
   },
   show: function (dir) {
     console.log("show prototypes", dir);
