@@ -578,6 +578,11 @@ APP.info = {
 
     // feature media
 
+    if (!data.feature || !data.feature.type) {
+      $(".info .feature").hide();
+    } else {
+      $(".info .feature").show();
+    }
     switch (data.feature.type) {
       case "video":
         str = "<div class='feature-video' id='feature-video'></div>";
@@ -642,8 +647,8 @@ APP.info = {
         break;
     }
 
-    // longer bio
-    $(".info .bio-title").html("[ bio ]");
+    // about copy
+    $(".info .bio-title").html("[ sobre nosotros ]");
     $(".info .bio").html(data.bio);
 
     //awards
@@ -708,26 +713,66 @@ APP.info = {
       if (l.url.includes("mailto")) {
         target = "_self";
       }
-      str +=
-        "<div data-aos='fade-in' data-aos-easing='ease-in-out' data-aos-offset='50' data-aos-duration='1000' data-aos-delay='50' class='list-item " +
-        l.class +
-        "'><a href='" +
-        l.url +
-        "' target='" +
-        target +
-        "'><img title='" +
-        l.title +
-        "' src='" +
-        l.file +
-        "' /></a></div>";
+      if (l.icon) {
+        str +=
+          "<div data-aos='fade-in' data-aos-easing='ease-in-out' data-aos-offset='50' data-aos-duration='1000' data-aos-delay='50' class='list-item " +
+          l.class +
+          "'><a href='" +
+          l.url +
+          "' target='" +
+          target +
+          "' aria-label='" +
+          l.title +
+          "'><i class='" +
+          l.icon +
+          "'></i></a></div>";
+      } else {
+        str +=
+          "<div data-aos='fade-in' data-aos-easing='ease-in-out' data-aos-offset='50' data-aos-duration='1000' data-aos-delay='50' class='list-item " +
+          l.class +
+          "'><a href='" +
+          l.url +
+          "' target='" +
+          target +
+          "'><img title='" +
+          l.title +
+          "' src='" +
+          l.file +
+          "' /></a></div>";
+      }
     });
     if (str != "") {
-      $(".info .social-title").html("[ booking | contact | connect ]");
+      $(".info .social-title").html("[ redes sociales ]");
       $(".info .social-list").html(str);
       $(".info .social").show();
     } else {
-      // hide
       $(".info .social").hide();
+    }
+
+    // team
+    str = "";
+    $.each(data.team || [], function (i, m) {
+      str +=
+        "<div class='team-member'>" +
+        "<div class='team-photo'><img src='" +
+        m.photo +
+        "' alt='" +
+        m.name +
+        "' /></div>" +
+        "<div class='team-name'>" +
+        m.name +
+        "</div>" +
+        "<div class='team-role'>" +
+        m.role +
+        "</div>" +
+        "</div>";
+    });
+    if (str != "") {
+      $(".info .team-title").html(data.teamTitle || "Nuestro Equipo");
+      $(".info .team-list").html(str);
+      $(".info .team-block").show();
+    } else {
+      $(".info .team-block").hide();
     }
 
     //press

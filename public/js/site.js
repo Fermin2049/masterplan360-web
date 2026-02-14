@@ -228,42 +228,59 @@ APP.data = {
 	info: {
 		title: 'About',
 		'page-title': 'Masterplan 360 | About',
-		subtitle: 'Equipo, enfoque y servicios',
-		content:
-			'Layout360Studio combina render, diseño y tecnología web para presentar proyectos inmobiliarios con experiencias inmersivas.',
-		bio: "<p>Somos un equipo especializado en visualización arquitectónica, recorridos 360 y storytelling digital para masterplans. Colaboramos con desarrolladores, arquitectos y equipos de marketing para elevar la experiencia de preventa y comunicación.</p><p>Integramos WebGL, sonido ambiente y animación para crear recorridos fluidos en desktop y móvil.</p><p>Enfocamos cada entrega en claridad, narrativa y facilidad de implementación.</p>",
+		subtitle: 'Estrategia visual para vender más rápido',
+		content: '',
+		bio:
+			"<p><strong>No vendemos imágenes.</strong><br>Creamos herramientas que hacen que tu proyecto se venda más rápido.</p>" +
+			"<p>Somos un estudio especializado en visualización inmobiliaria de alto impacto. Transformamos planos, ideas y desarrollos en experiencias visuales que generan deseo, confianza y decisión.</p>" +
+			"<p>En un mercado saturado, no alcanza con publicar. <strong>Hay que impactar.</strong></p>" +
+			"<p>Por eso combinamos:</p>" +
+			"<ul>" +
+			"<li>Renders fotorrealistas que hacen que el cliente se imagine viviendo ahí.</li>" +
+			"<li>Recorridos 360° que eliminan dudas y reducen objeciones.</li>" +
+			"<li>Masterplan interactivos que ordenan y potencian la preventa.</li>" +
+			"<li>Videos 4K que captan atención en segundos.</li>" +
+			"<li>Fotografía profesional que eleva la percepción del proyecto.</li>" +
+			"<li>Desarrollo web estratégico enfocado en conversión.</li>" +
+			"</ul>" +
+			"<p>Cada servicio está pensado con un objetivo claro: <strong>aumentar el valor percibido y acelerar la decisión de compra.</strong></p>" +
+			"<p>No trabajamos solo en lo visual. Trabajamos en cómo tu proyecto se posiciona, cómo se presenta y cómo compite.</p>" +
+			"<p>Si tu desarrollo necesita destacarse, generar impacto y cerrar ventas con mayor rapidez, estás en el lugar correcto.</p>" +
+			"<p><strong>Porque hoy, el que mejor comunica, es el que vende primero.</strong></p>",
 
 		feature: {
-			type: 'image',
+			type: '',
 			id: '',
 			source: '',
 			title: '',
-			images: [{ file: 'images/background.jpg' }],
+			images: [],
 			iframe: '',
 		},
 
-		servicesTitle: 'Servicios',
-		services: [
-			{
-				title: 'Visualización',
-				stats: ['Renders 360', 'Tours web', 'Animaciones', 'Storyboards'],
-			},
-			{
-				title: 'Implementación',
-				stats: ['Hotspots', 'Embeds web', 'Analytics', 'Optimización móvil'],
-			},
-			{
-				title: 'Acompañamiento',
-				stats: ['Workshops', 'Soporte post-entrega', 'Actualizaciones'],
-			},
-		],
+		servicesTitle: '',
+		services: [],
 
-		awards: [{ title: 'Experiencias 360 entregadas', file: 'images/icon.png' }],
+		awards: [],
 
-		clients: [
-			{ file: 'images/icon.png' },
-			{ file: 'images/icon.png' },
-			{ file: 'images/icon.png' },
+		clients: [],
+
+		teamTitle: 'Nuestro Equipo',
+		team: [
+			{
+				name: 'Nombre Apellido',
+				role: 'Dirección General',
+				photo: 'images/background.jpg',
+			},
+			{
+				name: 'Nombre Apellido',
+				role: 'Visualización 3D',
+				photo: 'images/background.jpg',
+			},
+			{
+				name: 'Nombre Apellido',
+				role: 'Estrategia Digital',
+				photo: 'images/background.jpg',
+			},
 		],
 
 		interviews: [],
@@ -272,25 +289,19 @@ APP.data = {
 
 		social: [
 			{
-				title: 'Email',
-				url: 'mailto:hola@layout360.studio',
-				file: 'images/icon.png',
-				type: 'mail',
+				title: 'Instagram',
+				url: 'https://www.instagram.com',
+				icon: 'fa-brands fa-instagram',
+			},
+			{
+				title: 'Facebook',
+				url: 'https://www.facebook.com',
+				icon: 'fa-brands fa-facebook-f',
 			},
 			{
 				title: 'LinkedIn',
 				url: 'https://www.linkedin.com',
-				file: 'images/icon.png',
-			},
-			{
-				title: 'Instagram',
-				url: 'https://www.instagram.com',
-				file: 'images/icon.png',
-			},
-			{
-				title: 'Behance',
-				url: 'https://www.behance.net',
-				file: 'images/icon.png',
+				icon: 'fa-brands fa-linkedin-in',
 			},
 		],
 	},
