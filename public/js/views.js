@@ -828,42 +828,27 @@ APP.contact = {
     $(".contact .page-title").html(data.title);
     $(".contact .page-subtitle").html(data.subtitle);
     $(".contact .page-content").html(data.content);
-
-    var listHtml = "";
-    $.each(data.list, function (i, item) {
-      listHtml +=
-        "<div class='list-item'><div class='title'>" +
-        item.title +
-        "</div><div class='subtitle'>" +
-        item.subtitle +
-        "</div></div>";
+    var contactEmail = "hola@layout360.studio";
+    $(".contact .contact-submit").off("click").on("click", function () {
+      var name = $("#contact-name").val() || "";
+      var email = $("#contact-email").val() || "";
+      var phone = $("#contact-phone").val() || "";
+      var message = $("#contact-message").val() || "";
+      var subject = encodeURIComponent("Consulta desde Masterplan 360");
+      var body = encodeURIComponent(
+        "Hola, quiero más información.\n\n" +
+          "Nombre: " +
+          name +
+          "\nEmail: " +
+          email +
+          "\nWhatsApp: " +
+          phone +
+          "\nMensaje: " +
+          message
+      );
+      var url = "mailto:" + contactEmail + "?subject=" + subject + "&body=" + body;
+      window.location.href = url;
     });
-    $(".contact .list").html(listHtml);
-
-    $(".contact .locations-title").html(data.locationsTitle);
-    var locationsHtml = "";
-    $.each(data.locations, function (i, item) {
-      locationsHtml +=
-        "<div class='list-item'><div class='title'>" +
-        item.title +
-        "</div><div class='subtitle'>" +
-        item.subtitle +
-        "</div></div>";
-    });
-    $(".contact .locations").html(locationsHtml);
-
-    var linksHtml = "";
-    $.each(data.links, function (i, item) {
-      linksHtml +=
-        "<div class='list-item'><a target='_blank' href='" +
-        item.url +
-        "'><img src='" +
-        item.file +
-        "' /><div class='label'>" +
-        item.title +
-        "</div></a></div>";
-    });
-    $(".contact .links").html(linksHtml);
   },
   show: function (dir) {
     console.log("show contact", dir);
